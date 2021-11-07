@@ -49,10 +49,6 @@ public class Player : KinematicBody2D
         swordCollisonL = GetNode<CollisionShape2D>("Area2DL/CollisionShape2DLeft");
         swordCollisonR.Disabled = true;
         swordCollisonL.Disabled = true;
-
-        run = GetNode<AudioStreamPlayer2D>("Run");
-        sword = GetNode<AudioStreamPlayer2D>("Sword");
-        swordInFlesh = GetNode<AudioStreamPlayer2D>("SwordInFlesh");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -76,7 +72,6 @@ public class Player : KinematicBody2D
 
         if (Input.IsActionPressed("ui_left"))
         {
-            //run.Play();
             playerSprite.FlipH = true;
             animationState.Travel("Run");
             motion.x -= ACCEL;
@@ -88,7 +83,6 @@ public class Player : KinematicBody2D
         }
         else if (Input.IsActionPressed("ui_right"))
         {
-            //run.Play();
             playerSprite.FlipH = false;
             animationState.Travel("Run");
             motion.x += ACCEL;
@@ -99,7 +93,6 @@ public class Player : KinematicBody2D
         }
         else
         {
-            run.Stop();
             motion.x = 0;
             animationState.Travel("Idle");
         }
@@ -165,7 +158,7 @@ public class Player : KinematicBody2D
     public void _on_Area2D_body_entered(KinematicBody2D body)
     {
 
-        if (body.Name == "Harpy")
+        if (body.Name == "Harpy" || body.Name == "Harpy2" || body.Name == "Harpy3" || body.Name == "Harpy4")
         {
             targetEnnemy = body;
             GD.Print("you can die");

@@ -82,6 +82,7 @@ height = 12.9093
 radius = 221.52
 
 [node name="Harpy" type="KinematicBody2D"]
+z_index = 500
 script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
