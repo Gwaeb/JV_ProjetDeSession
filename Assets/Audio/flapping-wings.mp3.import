@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/flapping-wings.mp3-fca6ef4eda1533eaccaab9907e173a9c.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/flapping-wings.mp3"
+dest_files=[ "res://.import/flapping-wings.mp3-fca6ef4eda1533eaccaab9907e173a9c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

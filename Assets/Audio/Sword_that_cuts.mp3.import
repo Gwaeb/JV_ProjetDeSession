@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Sword_that_cuts.mp3-95cd9c33a0c77b2daaba27de3320af6d.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Sword_that_cuts.mp3"
+dest_files=[ "res://.import/Sword_that_cuts.mp3-95cd9c33a0c77b2daaba27de3320af6d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
