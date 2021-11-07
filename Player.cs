@@ -36,6 +36,10 @@ public class Player : KinematicBody2D
     AudioStreamPlayer2D swordInFlesh;
 
 
+    Label label;
+    int score;
+
+
     public override void _Ready()
     {
         playerSprite = GetNode<AnimatedSprite>("AnimatedSpritePlayer");
@@ -45,15 +49,21 @@ public class Player : KinematicBody2D
 
 
 
+
         swordCollisonR = GetNode<CollisionShape2D>("Area2DR/CollisionShape2DRight");
         swordCollisonL = GetNode<CollisionShape2D>("Area2DL/CollisionShape2DLeft");
         swordCollisonR.Disabled = true;
         swordCollisonL.Disabled = true;
+
+
+        label = GetNode<Label>("Camera2DPlayer/Label");
+        score = 0;
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
+        label.Text = "Score: " + score;
         move_state(delta);
         switch (state)
         {
@@ -131,6 +141,7 @@ public class Player : KinematicBody2D
         animationState.Travel("Attack");
         if (targetEnnemy != null)
         {
+            score += 10;
             targetEnnemy.QueueFree();
         }
         Gravity(delta);
@@ -158,7 +169,13 @@ public class Player : KinematicBody2D
     public void _on_Area2D_body_entered(KinematicBody2D body)
     {
 
+        GD.Print(body.IsInGroup("Harpy"));
+
+        //body.IsInGroup("Harpy")
+
+
         if (body.Name == "Harpy" || body.Name == "Harpy2" || body.Name == "Harpy3" || body.Name == "Harpy4")
+        //if (body.IsInGroup("Harpy"))
         {
             targetEnnemy = body;
             GD.Print("you can die");
