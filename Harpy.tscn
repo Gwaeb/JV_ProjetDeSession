@@ -102,7 +102,9 @@ shape = SubResource( 17 )
 
 [node name="Wings" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
-attenuation = 27.8576
+volume_db = 2.932
+autoplay = true
+attenuation = 6.96438
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

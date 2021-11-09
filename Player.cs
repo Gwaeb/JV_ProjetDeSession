@@ -31,7 +31,7 @@ public class Player : KinematicBody2D
     KinematicBody2D targetEnnemy;
 
 
-    AudioStreamPlayer2D run;
+
     AudioStreamPlayer2D sword;
     AudioStreamPlayer2D swordInFlesh;
 
@@ -58,6 +58,10 @@ public class Player : KinematicBody2D
 
         label = GetNode<Label>("Camera2DPlayer/Label");
         score = 0;
+
+
+        sword = GetNode<AudioStreamPlayer2D>("Sword");
+        swordInFlesh = GetNode<AudioStreamPlayer2D>("SwordInFlesh");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -138,6 +142,10 @@ public class Player : KinematicBody2D
     }
     private void attack_state(float delta)
     {
+        if (!sword.Playing)
+        {
+            sword.Play();
+        }
         animationState.Travel("Attack");
         if (targetEnnemy != null)
         {
@@ -150,6 +158,7 @@ public class Player : KinematicBody2D
 
     public void attack_animation_finished()
     {
+        sword.Stop();
         state = State.MOVE;
         swordCollisonL.Disabled = true;
         swordCollisonR.Disabled = true;
