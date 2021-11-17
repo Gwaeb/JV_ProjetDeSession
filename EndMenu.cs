@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class World2 : Node2D
+public class EndMenu : Control
 {
     // Declare member variables here. Examples:
     // private int a = 2;
@@ -13,25 +13,18 @@ public class World2 : Node2D
 
     }
 
+    public void _on_ButtonPlayAgain_pressed()
+    {
+        GetTree().ChangeScene("res://World1.tscn");
+    }
+    public void _on_ButtonQuit_pressed()
+    {
+        GetTree().Quit();
+    }
+
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
     //  public override void _Process(float delta)
     //  {
     //      
     //  }
-
-    public void _on_Area2D_body_entered(KinematicBody2D body)
-    {
-        if (body.Name == "Player")
-        {
-            GetTree().ChangeScene("res://World2.tscn");
-        }
-    }
-
-    public void _on_EndGame_body_entered(KinematicBody2D body)
-    {
-        if (body.Name == "Player")
-        {
-            GetTree().ChangeScene("res://EndMenu.tscn");
-        }
-    }
 }

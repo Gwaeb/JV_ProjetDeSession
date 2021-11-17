@@ -83,7 +83,7 @@ shape = SubResource( 2 )
 [node name="EndGame" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndGame"]
-position = Vector2( 2490.19, 10.4619 )
+position = Vector2( 2664.14, -64.4914 )
 shape = SubResource( 3 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -91,7 +91,7 @@ shape = SubResource( 3 )
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 2793.46, -41.9363 )
+position = Vector2( 2837.3, -53.25 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 
@@ -112,3 +112,4 @@ stream = ExtResource( 9 )
 autoplay = true
 
 [connection signal="body_entered" from="Fall" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="EndGame" to="." method="_on_EndGame_body_entered"]
