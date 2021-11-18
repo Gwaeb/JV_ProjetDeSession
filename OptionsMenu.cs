@@ -15,11 +15,23 @@ public class OptionsMenu : Control
 
     public void _on_ButtonClose_pressed()
     {
-        GetTree().Finish();
+        QueueFree();
     }
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    //  public override void _Process(float delta)
-    //  {
-    //      
-    //  }
+    public override void _Process(float delta)
+    {
+
+        if (Input.IsActionJustPressed("ui_lvl1"))
+        {
+            GetTree().ChangeScene("res://World1.tscn");
+        }
+        if (Input.IsActionJustPressed("ui_lvl2"))
+        {
+            GetTree().ChangeScene("res://World2.tscn");
+        }
+        if (Input.IsActionJustPressed("ui_endScene"))
+        {
+            GetTree().ChangeScene("res://EndMenu.tscn");
+        }
+    }
 }

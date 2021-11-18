@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://MainMenu.cs" type="Script" id=1]
+[ext_resource path="res://Assets/wasd.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/clicGauche.png" type="Texture" id=3]
+[ext_resource path="res://Assets/3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/1.png" type="Texture" id=5]
+[ext_resource path="res://Assets/2.png" type="Texture" id=6]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -12,39 +17,47 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 599.0
+color = Color( 0, 0, 0, 0.333333 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -268.0
-margin_top = -73.0
+margin_top = -72.5
 margin_right = 268.0
-margin_bottom = 73.0
+margin_bottom = 73.5
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonStart" type="Button" parent="VBoxContainer"]
+[node name="ButtonStart" type="Button" parent="ColorRect/VBoxContainer"]
 margin_top = 39.0
 margin_right = 536.0
 margin_bottom = 59.0
 text = "Start"
 
-[node name="ButtonOptions" type="Button" parent="VBoxContainer"]
+[node name="ButtonOptions" type="Button" parent="ColorRect/VBoxContainer"]
 margin_top = 63.0
 margin_right = 536.0
 margin_bottom = 83.0
 text = "Options"
 
-[node name="ButtonExit" type="Button" parent="VBoxContainer"]
+[node name="ButtonExit" type="Button" parent="ColorRect/VBoxContainer"]
 margin_top = 87.0
 margin_right = 536.0
 margin_bottom = 107.0
 text = "Exit"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="ColorRect"]
 margin_left = 416.0
 margin_top = 148.0
 margin_right = 605.0
@@ -56,6 +69,78 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="VBoxContainer/ButtonStart" to="." method="_on_ButtonStart_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonOptions" to="." method="_on_ButtonOptions_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonExit" to="." method="_on_ButtonExit_pressed"]
+[node name="Label2" type="Label" parent="ColorRect"]
+margin_left = 47.1434
+margin_top = 521.945
+margin_right = 137.143
+margin_bottom = 535.945
+text = "Déplacement:"
+
+[node name="wasd" type="Sprite" parent="ColorRect/Label2"]
+position = Vector2( 159.893, 10.2903 )
+scale = Vector2( 0.247195, 0.220213 )
+texture = ExtResource( 2 )
+
+[node name="Label3" type="Label" parent="ColorRect"]
+margin_left = 314.289
+margin_top = 523.067
+margin_right = 368.289
+margin_bottom = 537.067
+text = "Attaque:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="clicGauche" type="Sprite" parent="ColorRect/Label3"]
+position = Vector2( 107.699, 7.48413 )
+scale = Vector2( 0.262861, 0.207044 )
+texture = ExtResource( 3 )
+
+[node name="Lvl 1" type="Label" parent="ColorRect"]
+margin_left = 532.047
+margin_top = 518.577
+margin_right = 572.047
+margin_bottom = 532.577
+text = "Lvl 1:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1" type="Sprite" parent="ColorRect/Lvl 1"]
+position = Vector2( 84.6885, 7.48413 )
+scale = Vector2( 0.155961, 0.149385 )
+texture = ExtResource( 5 )
+
+[node name="2" type="Sprite" parent="ColorRect/Lvl 1/1"]
+position = Vector2( 928.82, -3.75842 )
+scale = Vector2( 1.95586, 2.02729 )
+texture = ExtResource( 6 )
+
+[node name="3" type="Sprite" parent="ColorRect/Lvl 1/1/2"]
+position = Vector2( 568.753, -2.29358 )
+scale = Vector2( 0.489723, 0.48603 )
+texture = ExtResource( 4 )
+
+[node name="Label4" type="Label" parent="ColorRect"]
+margin_left = 679.089
+margin_top = 519.7
+margin_right = 719.089
+margin_bottom = 533.7
+text = "Lvl 2:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="ColorRect"]
+margin_left = 817.882
+margin_top = 519.237
+margin_right = 890.882
+margin_bottom = 533.237
+text = "End scene: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/ButtonStart" to="." method="_on_ButtonStart_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/ButtonOptions" to="." method="_on_ButtonOptions_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/ButtonExit" to="." method="_on_ButtonExit_pressed"]

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class World1 : Node2D
+public class PauseMenu : Control
 {
     // Declare member variables here. Examples:
     // private int a = 2;
@@ -13,16 +13,27 @@ public class World1 : Node2D
 
     }
 
+    public void _on_ButtonResume_pressed()
+    {
+        QueueFree();
+        GetTree().Paused = false;
+    }
+
+    public void _on_ButtonOptions_pressed()
+    {
+        var options = GD.Load<PackedScene>("res://OptionsMenu.tscn").Instance();
+        GetTree().CurrentScene.AddChild(options);
+    }
+
+    public void _on_ButtonExit_pressed()
+    {
+        GetTree().Paused = false;
+        GetTree().ChangeScene("res://MainMenu.tscn");
+    }
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
-        if (Input.IsActionJustPressed("ui_pause"))
-        {
-            GetTree().Paused = true;
-            var options = GD.Load<PackedScene>("res://PauseMenu.tscn").Instance();
-            GetTree().CurrentScene.AddChild(options);
 
-        }
         if (Input.IsActionJustPressed("ui_lvl1"))
         {
             GetTree().ChangeScene("res://World1.tscn");
@@ -34,24 +45,6 @@ public class World1 : Node2D
         if (Input.IsActionJustPressed("ui_endScene"))
         {
             GetTree().ChangeScene("res://EndMenu.tscn");
-        }
-    }
-
-    public void _on_Area2D_body_entered(KinematicBody2D body)
-    {
-        if (body.Name == "Player")
-        {
-            GetTree().ChangeScene("res://World2.tscn");
-        }
-    }
-
-
-
-    public void _on_Area2D2_body_entered(KinematicBody2D body)
-    {
-        if (body.Name == "Player")
-        {
-            GetTree().ChangeScene("res://World1.tscn");
         }
     }
 }

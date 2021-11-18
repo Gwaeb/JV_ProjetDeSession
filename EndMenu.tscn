@@ -10,7 +10,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_top = -0.00187073
+anchor_bottom = -0.00187073
+margin_right = 1026.0
+margin_bottom = 601.0
+color = Color( 0, 0, 0, 0.333333 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -23,21 +33,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonPlayAgain" type="Button" parent="VBoxContainer"]
+[node name="ButtonPlayAgain" type="Button" parent="ColorRect/VBoxContainer"]
 margin_right = 423.0
 margin_bottom = 20.0
 text = "Play again"
 
-[node name="ButtonQuit" type="Button" parent="VBoxContainer"]
+[node name="ButtonMainMenu" type="Button" parent="ColorRect/VBoxContainer"]
 margin_top = 24.0
 margin_right = 423.0
 margin_bottom = 44.0
+text = "Main menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonQuit" type="Button" parent="ColorRect/VBoxContainer"]
+margin_top = 48.0
+margin_right = 423.0
+margin_bottom = 68.0
 text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="ColorRect"]
 margin_left = 424.291
 margin_top = 162.757
 margin_right = 598.291
@@ -47,5 +66,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="VBoxContainer/ButtonPlayAgain" to="." method="_on_ButtonPlayAgain_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonQuit" to="." method="_on_ButtonQuit_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/ButtonPlayAgain" to="." method="_on_ButtonPlayAgain_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/ButtonMainMenu" to="." method="_on_ButtonMainMenu_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/ButtonQuit" to="." method="_on_ButtonQuit_pressed"]

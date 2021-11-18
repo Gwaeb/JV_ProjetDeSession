@@ -56,12 +56,11 @@ public class Player : KinematicBody2D
         swordCollisonL.Disabled = true;
 
 
-        label = GetNode<Label>("Camera2DPlayer/Label");
+        label = GetNode<Label>("Label");
         score = 0;
 
 
         sword = GetNode<AudioStreamPlayer2D>("Sword");
-        swordInFlesh = GetNode<AudioStreamPlayer2D>("SwordInFlesh");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -180,11 +179,8 @@ public class Player : KinematicBody2D
 
         GD.Print(body.IsInGroup("Harpy"));
 
-        //body.IsInGroup("Harpy")
-
 
         if (body.Name == "Harpy" || body.Name == "Harpy2" || body.Name == "Harpy3" || body.Name == "Harpy4")
-        //if (body.IsInGroup("Harpy"))
         {
             targetEnnemy = body;
             GD.Print("you can die");

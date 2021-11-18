@@ -17,14 +17,30 @@ public class EndMenu : Control
     {
         GetTree().ChangeScene("res://World1.tscn");
     }
+    public void _on_ButtonMainMenu_pressed()
+    {
+        GetTree().ChangeScene("res://MainMenu.tscn");
+    }
     public void _on_ButtonQuit_pressed()
     {
         GetTree().Quit();
     }
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    //  public override void _Process(float delta)
-    //  {
-    //      
-    //  }
+    public override void _Process(float delta)
+    {
+
+        if (Input.IsActionJustPressed("ui_lvl1"))
+        {
+            GetTree().ChangeScene("res://World1.tscn");
+        }
+        if (Input.IsActionJustPressed("ui_lvl2"))
+        {
+            GetTree().ChangeScene("res://World2.tscn");
+        }
+        if (Input.IsActionJustPressed("ui_endScene"))
+        {
+            GetTree().ChangeScene("res://EndMenu.tscn");
+        }
+    }
 }
