@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://MainMenu.cs" type="Script" id=1]
 [ext_resource path="res://Assets/wasd.jpg" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/3.png" type="Texture" id=4]
 [ext_resource path="res://Assets/1.png" type="Texture" id=5]
 [ext_resource path="res://Assets/2.png" type="Texture" id=6]
+[ext_resource path="res://Assets/4.png" type="Texture" id=7]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -69,38 +70,38 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="ColorRect"]
-margin_left = 47.1434
-margin_top = 521.945
-margin_right = 137.143
-margin_bottom = 535.945
+[node name="Deplacement" type="Label" parent="ColorRect"]
+margin_left = 18.4492
+margin_top = 523.067
+margin_right = 108.449
+margin_bottom = 537.067
 text = "Déplacement:"
 
-[node name="wasd" type="Sprite" parent="ColorRect/Label2"]
+[node name="wasd" type="Sprite" parent="ColorRect/Deplacement"]
 position = Vector2( 159.893, 10.2903 )
 scale = Vector2( 0.247195, 0.220213 )
 texture = ExtResource( 2 )
 
-[node name="Label3" type="Label" parent="ColorRect"]
-margin_left = 314.289
-margin_top = 523.067
-margin_right = 368.289
-margin_bottom = 537.067
+[node name="Attaque" type="Label" parent="ColorRect"]
+margin_left = 256.411
+margin_top = 526.435
+margin_right = 310.411
+margin_bottom = 540.435
 text = "Attaque:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="clicGauche" type="Sprite" parent="ColorRect/Label3"]
+[node name="clicGauche" type="Sprite" parent="ColorRect/Attaque"]
 position = Vector2( 107.699, 7.48413 )
 scale = Vector2( 0.262861, 0.207044 )
 texture = ExtResource( 3 )
 
 [node name="Lvl 1" type="Label" parent="ColorRect"]
-margin_left = 532.047
-margin_top = 518.577
-margin_right = 572.047
-margin_bottom = 532.577
+margin_left = 411.311
+margin_top = 523.067
+margin_right = 451.311
+margin_bottom = 537.067
 text = "Lvl 1:"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -111,35 +112,47 @@ position = Vector2( 84.6885, 7.48413 )
 scale = Vector2( 0.155961, 0.149385 )
 texture = ExtResource( 5 )
 
-[node name="2" type="Sprite" parent="ColorRect/Lvl 1/1"]
-position = Vector2( 928.82, -3.75842 )
-scale = Vector2( 1.95586, 2.02729 )
-texture = ExtResource( 6 )
-
-[node name="3" type="Sprite" parent="ColorRect/Lvl 1/1/2"]
-position = Vector2( 568.753, -2.29358 )
-scale = Vector2( 0.489723, 0.48603 )
-texture = ExtResource( 4 )
-
-[node name="Label4" type="Label" parent="ColorRect"]
-margin_left = 679.089
-margin_top = 519.7
-margin_right = 719.089
-margin_bottom = 533.7
+[node name="Lvl2" type="Label" parent="ColorRect"]
+margin_left = 558.353
+margin_top = 524.19
+margin_right = 598.353
+margin_bottom = 538.19
 text = "Lvl 2:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label5" type="Label" parent="ColorRect"]
-margin_left = 817.882
-margin_top = 519.237
-margin_right = 890.882
-margin_bottom = 533.237
+[node name="2" type="Sprite" parent="ColorRect/Lvl2"]
+position = Vector2( 82.5062, 5.79962 )
+scale = Vector2( 0.305038, 0.302847 )
+texture = ExtResource( 6 )
+
+[node name="Lvl3" type="Label" parent="ColorRect"]
+margin_left = 697.146
+margin_top = 523.727
+margin_right = 770.146
+margin_bottom = 537.727
 text = "End scene: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="3" type="Sprite" parent="ColorRect/Lvl3"]
+position = Vector2( 117.204, 5.56805 )
+scale = Vector2( 0.149384, 0.147193 )
+texture = ExtResource( 4 )
+
+[node name="Label4" type="Label" parent="ColorRect"]
+margin_left = 875.659
+margin_top = 521.922
+margin_right = 920.659
+margin_bottom = 535.922
+text = "Debug:"
+
+[node name="4" type="Sprite" parent="ColorRect/Label4"]
+position = Vector2( 89.9023, 8.35034 )
+scale = Vector2( 0.147475, 0.147475 )
+texture = ExtResource( 7 )
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/ButtonStart" to="." method="_on_ButtonStart_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/ButtonOptions" to="." method="_on_ButtonOptions_pressed"]

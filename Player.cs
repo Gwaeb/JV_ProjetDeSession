@@ -39,6 +39,8 @@ public class Player : KinematicBody2D
     Label label;
     int score;
 
+    Label labelDebug;
+    bool debug;
 
     public override void _Ready()
     {
@@ -47,17 +49,16 @@ public class Player : KinematicBody2D
         animationTree.Active = true;
         animationState = (AnimationNodeStateMachinePlayback)animationTree.Get("parameters/playback");
 
-
-
-
         swordCollisonR = GetNode<CollisionShape2D>("Area2DR/CollisionShape2DRight");
         swordCollisonL = GetNode<CollisionShape2D>("Area2DL/CollisionShape2DLeft");
         swordCollisonR.Disabled = true;
         swordCollisonL.Disabled = true;
 
-
         label = GetNode<Label>("Label");
         score = 0;
+        labelDebug = GetNode<Label>("LabelDebug");
+        debug = false;
+
 
 
         sword = GetNode<AudioStreamPlayer2D>("Sword");
@@ -66,6 +67,14 @@ public class Player : KinematicBody2D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
+        if (Input.IsActionJustPressed("ui_debug"))
+        {
+            debug = !debug;
+        }
+        if (!debug)
+        {
+            labelDebug.Text = "";
+        }
         label.Text = "Score: " + score;
         move_state(delta);
         switch (state)
@@ -93,6 +102,11 @@ public class Player : KinematicBody2D
                 motion.x = -MAXSPEED;
             }
 
+            if (debug)
+            {
+                labelDebug.Text = "State: Move Left";
+            }
+
         }
         else if (Input.IsActionPressed("ui_right"))
         {
@@ -103,11 +117,21 @@ public class Player : KinematicBody2D
             {
                 motion.x = MAXSPEED;
             }
+            if (debug)
+            {
+                labelDebug.Text = "State: Move Right";
+            }
         }
         else
         {
             motion.x = 0;
             animationState.Travel("Idle");
+
+
+            if (debug)
+            {
+                labelDebug.Text = "State: Idle";
+            }
         }
 
         if (IsOnFloor())
@@ -125,10 +149,20 @@ public class Player : KinematicBody2D
             if (motion.y < 0)
             {
                 animationState.Travel("Jump");
+
+                if (debug)
+                {
+                    labelDebug.Text = "State: Jump";
+                }
             }
             else if (motion.y > 0)
             {
                 animationState.Travel("Fall");
+
+                if (debug)
+                {
+                    labelDebug.Text = "State: Fall";
+                }
             }
         }
 
@@ -141,6 +175,11 @@ public class Player : KinematicBody2D
     }
     private void attack_state(float delta)
     {
+
+        if (debug)
+        {
+            labelDebug.Text = "State: Attack";
+        }
         if (!sword.Playing)
         {
             sword.Play();

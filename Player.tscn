@@ -494,7 +494,14 @@ shape = SubResource( 66 )
 [node name="Sword" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="LabelDebug" type="Label" parent="."]
+margin_left = -224.761
+margin_top = 111.786
+margin_right = -184.761
+margin_bottom = 125.786
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="."]
 margin_left = -240.22
