@@ -1,12 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://MainMenu.cs" type="Script" id=1]
-[ext_resource path="res://Assets/wasd.jpg" type="Texture" id=2]
-[ext_resource path="res://Assets/clicGauche.png" type="Texture" id=3]
-[ext_resource path="res://Assets/3.png" type="Texture" id=4]
-[ext_resource path="res://Assets/1.png" type="Texture" id=5]
-[ext_resource path="res://Assets/2.png" type="Texture" id=6]
-[ext_resource path="res://Assets/4.png" type="Texture" id=7]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -41,21 +35,27 @@ __meta__ = {
 }
 
 [node name="ButtonStart" type="Button" parent="ColorRect/VBoxContainer"]
-margin_top = 39.0
+margin_top = 27.0
 margin_right = 536.0
-margin_bottom = 59.0
+margin_bottom = 47.0
 text = "Start"
 
-[node name="ButtonOptions" type="Button" parent="ColorRect/VBoxContainer"]
-margin_top = 63.0
+[node name="ButtonInstructions" type="Button" parent="ColorRect/VBoxContainer"]
+margin_top = 51.0
 margin_right = 536.0
-margin_bottom = 83.0
+margin_bottom = 71.0
+text = "Instructions"
+
+[node name="ButtonOptions" type="Button" parent="ColorRect/VBoxContainer"]
+margin_top = 75.0
+margin_right = 536.0
+margin_bottom = 95.0
 text = "Options"
 
 [node name="ButtonExit" type="Button" parent="ColorRect/VBoxContainer"]
-margin_top = 87.0
+margin_top = 99.0
 margin_right = 536.0
-margin_bottom = 107.0
+margin_bottom = 119.0
 text = "Exit"
 
 [node name="Label" type="Label" parent="ColorRect"]
@@ -70,90 +70,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Deplacement" type="Label" parent="ColorRect"]
-margin_left = 18.4492
-margin_top = 523.067
-margin_right = 108.449
-margin_bottom = 537.067
-text = "Déplacement:"
-
-[node name="wasd" type="Sprite" parent="ColorRect/Deplacement"]
-position = Vector2( 159.893, 10.2903 )
-scale = Vector2( 0.247195, 0.220213 )
-texture = ExtResource( 2 )
-
-[node name="Attaque" type="Label" parent="ColorRect"]
-margin_left = 256.411
-margin_top = 526.435
-margin_right = 310.411
-margin_bottom = 540.435
-text = "Attaque:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="clicGauche" type="Sprite" parent="ColorRect/Attaque"]
-position = Vector2( 107.699, 7.48413 )
-scale = Vector2( 0.262861, 0.207044 )
-texture = ExtResource( 3 )
-
-[node name="Lvl 1" type="Label" parent="ColorRect"]
-margin_left = 411.311
-margin_top = 523.067
-margin_right = 451.311
-margin_bottom = 537.067
-text = "Lvl 1:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="1" type="Sprite" parent="ColorRect/Lvl 1"]
-position = Vector2( 84.6885, 7.48413 )
-scale = Vector2( 0.155961, 0.149385 )
-texture = ExtResource( 5 )
-
-[node name="Lvl2" type="Label" parent="ColorRect"]
-margin_left = 558.353
-margin_top = 524.19
-margin_right = 598.353
-margin_bottom = 538.19
-text = "Lvl 2:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="2" type="Sprite" parent="ColorRect/Lvl2"]
-position = Vector2( 82.5062, 5.79962 )
-scale = Vector2( 0.305038, 0.302847 )
-texture = ExtResource( 6 )
-
-[node name="Lvl3" type="Label" parent="ColorRect"]
-margin_left = 697.146
-margin_top = 523.727
-margin_right = 770.146
-margin_bottom = 537.727
-text = "End scene: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="3" type="Sprite" parent="ColorRect/Lvl3"]
-position = Vector2( 117.204, 5.56805 )
-scale = Vector2( 0.149384, 0.147193 )
-texture = ExtResource( 4 )
-
-[node name="Label4" type="Label" parent="ColorRect"]
-margin_left = 875.659
-margin_top = 521.922
-margin_right = 920.659
-margin_bottom = 535.922
-text = "Debug:"
-
-[node name="4" type="Sprite" parent="ColorRect/Label4"]
-position = Vector2( 89.9023, 8.35034 )
-scale = Vector2( 0.147475, 0.147475 )
-texture = ExtResource( 7 )
-
 [connection signal="pressed" from="ColorRect/VBoxContainer/ButtonStart" to="." method="_on_ButtonStart_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/ButtonInstructions" to="." method="_on_ButtonInstructions_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/ButtonOptions" to="." method="_on_ButtonOptions_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/ButtonExit" to="." method="_on_ButtonExit_pressed"]

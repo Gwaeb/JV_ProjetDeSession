@@ -17,6 +17,11 @@ public class MainMenu : Control
         GetTree().ChangeScene("res://World1.tscn");
     }
 
+    public void _on_ButtonInstructions_pressed()
+    {
+        GetTree().ChangeScene("res://InstructionMenu.tscn");
+    }
+
     public void _on_ButtonOptions_pressed()
     {
         var options = GD.Load<PackedScene>("res://OptionsMenu.tscn").Instance();

@@ -194,6 +194,20 @@ public class Player : KinematicBody2D
         motion = MoveAndSlide(motion, UP);
     }
 
+    private void attack_hitbox()
+    {
+        if (playerSprite.FlipH == true)
+        {
+            swordCollisonR.Disabled = true;
+            swordCollisonL.Disabled = false;
+        }
+        else
+        {
+            swordCollisonR.Disabled = false;
+            swordCollisonL.Disabled = true;
+        }
+    }
+
     public void attack_animation_finished()
     {
         sword.Stop();
@@ -235,17 +249,5 @@ public class Player : KinematicBody2D
         }
     }
 
-    private void attack_hitbox()
-    {
-        if (playerSprite.FlipH == true)
-        {
-            swordCollisonR.Disabled = true;
-            swordCollisonL.Disabled = false;
-        }
-        else
-        {
-            swordCollisonR.Disabled = false;
-            swordCollisonL.Disabled = true;
-        }
-    }
+
 }
